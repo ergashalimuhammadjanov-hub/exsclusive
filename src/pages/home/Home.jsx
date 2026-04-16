@@ -57,27 +57,27 @@ function Home() {
           <h1 className="h1anim">Browse By Category</h1>
           <div className="categoryCards">
             <div className="cat_yCard">
-              <img src="./imgs/Category-CellPhone.svg" alt="" />
+              <img src="/imgs/Category-CellPhone.svg" alt="" />
               <h3>Phones</h3>
             </div>
             <div className="cat_yCard">
-              <img src="./imgs/Category-Computer.svg" alt="" />
+              <img src="/imgs/Category-Computer.svg" alt="" />
               <h3>Computers</h3>
             </div>
             <div className="cat_yCard">
-              <img src="./imgs/Category-SmartWatch.svg" alt="" />
+              <img src="/imgs/Category-SmartWatch.svg" alt="" />
               <h3>SmartWatch</h3>
             </div>
             <div className="cat_yCard">
-              <img src="./imgs/Category-Headphone.svg" alt="" />
+              <img src="/imgs/Category-Headphone.svg" alt="" />
               <h3>HeadPhones</h3>
             </div>
             <div className="cat_yCard">
-              <img src="./imgs/Category-Gamepad.svg" alt="" />
+              <img src="/imgs/Category-Gamepad.svg" alt="" />
               <h3>Gaming</h3>
             </div>
             <div className="cat_yCard">
-              <img src="./imgs/Category-CellPhone.svg" alt="" />
+              <img src="/imgs/Category-CellPhone.svg" alt="" />
               <h3>Phones</h3>
             </div>
           </div>
@@ -155,7 +155,7 @@ function Home() {
           <div className="arrival">
             <div className="arr_left">
               <div className="arrimg">
-                <img src="./imgs/Frame 684.svg" alt="" />
+                <img src="/imgs/Frame 684.svg" alt="" />
               </div>
               <div className="arrivaltxt">
                 <h3>PlayStation 5</h3>
@@ -166,7 +166,7 @@ function Home() {
             <div className="arr_right">
               <div className="top">
                 <div className="arrimg">
-                  <img src="./imgs/Frame 685.svg" alt="" />
+                  <img src="/imgs/Frame 685.svg" alt="" />
                 </div>
                 <div className="arrivaltxt">
                   <h3>PlayStation 5</h3>
@@ -177,7 +177,7 @@ function Home() {
               <div className="bottomn">
                 <div className="carddd">
                   <div className="arrimg">
-                    <img src="./imgs/Frame 686.svg" alt="" />
+                    <img src="/imgs/Frame 686.svg" alt="" />
                   </div>
                   <div className="arrivaltxt">
                     <h3>PlayStation 5</h3>
@@ -189,7 +189,7 @@ function Home() {
                 </div>
                 <div className="carddd">
                   <div className="arrimg">
-                    <img src="./imgs/Frame 687.svg" alt="" />
+                    <img src="/imgs/Frame 687.svg" alt="" />
                   </div>
                   <div className="arrivaltxt">
                     <h3>PlayStation 5</h3>
@@ -204,17 +204,17 @@ function Home() {
           </div>
           <div className="services">
             <div className="services_box">
-              <img src="./imgs/Services.svg" alt="" />
+              <img src="/imgs/Services.svg" alt="" />
               <h2>FREE AND FAST DELIVERY</h2>
               <p>Free delivery for all orders over $140</p>
             </div>
             <div className="services_box">
-              <img src="./imgs/Services (1).svg" alt="" />
+              <img src="/imgs/Services (1).svg" alt="" />
               <h2>24/7 CUSTOMER SERVICE</h2>
               <p>Friendly 24/7 customer support</p>
             </div>
             <div className="services_box">
-              <img src="./imgs/Services (2).svg" alt="" />
+              <img src="/imgs/Services (2).svg" alt="" />
               <h2>MONEY BACK GUARANTEE</h2>
               <p>We reurn money within 30 days</p>
             </div>
