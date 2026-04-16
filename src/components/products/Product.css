@@ -4,13 +4,13 @@
   border-radius: 14px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
   /* cursor: pointer; */
 }
 
 .card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 .cards {
   display: flex;
@@ -100,7 +100,6 @@
   border: none;
   color: #fff;
   cursor: pointer;
-  background-color: #7d2ae8;
   transition: all 0.2s ease;
 }
 
@@ -123,15 +122,15 @@
 .cart:hover:before {
   top: -70%;
   background-image:
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #2ec4b6 20%, transparent 30%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #2ec4b6 15%, transparent 20%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%),
-    radial-gradient(circle, #2ec4b6 20%, transparent 20%);
+    radial-gradient(circle, #000 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #000 20%, transparent 30%),
+    radial-gradient(circle, #000 20%, transparent 20%),
+    radial-gradient(circle, #000   20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #000 15%, transparent 20%),
+    radial-gradient(circle, #000 20%, transparent 20%),
+    radial-gradient(circle, #000 20%, transparent 20%),
+    radial-gradient(circle, #000 20%, transparent 20%),
+    radial-gradient(circle, #000 20%, transparent 20%);
   background-size:
     10% 10%,
     20% 20%,
@@ -194,69 +193,9 @@
   }
 }
 
-.button:hover::after {
-  bottom: -70%;
-  background-image:
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-  background-size:
-    15% 15%,
-    20% 20%,
-    18% 18%,
-    20% 20%,
-    15% 15%,
-    20% 20%,
-    18% 18%;
-  background-position: 50% 0%;
-  animation: greenbottomBubbles 0.6s ease;
-}
 
-@keyframes greenbottomBubbles {
-  0% {
-    background-position:
-      10% -10%,
-      30% 10%,
-      55% -10%,
-      70% -10%,
-      85% -10%,
-      70% -10%,
-      70% 0%;
-  }
 
-  50% {
-    background-position:
-      0% 80%,
-      20% 80%,
-      45% 60%,
-      60% 100%,
-      75% 70%,
-      95% 60%,
-      105% 0%;
-  }
 
-  100% {
-    background-position:
-      0% 90%,
-      20% 90%,
-      45% 70%,
-      60% 110%,
-      75% 80%,
-      95% 70%,
-      110% 10%;
-    background-size:
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%,
-      0% 0%;
-  }
-}
 
 /* From Uiverse.io by catraco */
 .heart-container {

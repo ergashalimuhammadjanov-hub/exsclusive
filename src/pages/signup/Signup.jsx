@@ -1,5 +1,6 @@
 import React from "react";
 import "./Signup.css";
+import { NavLink } from "react-router-dom";
 function Signup() {
   return (
     <div className="sign">
@@ -16,7 +17,11 @@ function Signup() {
             <span class="input-highlight"></span>
           </div>
           <div class="input-container">
-            <input placeholder="Email or Phone Number" class="input-field" type="text" />
+            <input
+              placeholder="Email or Phone Number"
+              class="input-field"
+              type="text"
+            />
             <label for="input-field" class="input-label">
               Enter email or phone number
             </label>
@@ -30,8 +35,18 @@ function Signup() {
             <span class="input-highlight"></span>
           </div>
 
-          <button className="accaunt">Create Account</button>
-          <button className="withgoogle"><img src="./imgs/Icon-Google.svg" alt="" />Sign up with Google</button>
+          <div className="signbutton">
+            <button className="accaunt">Create Account</button>
+            <button className="withgoogle">
+              <img src="./imgs/Icon-Google.svg" alt="" />
+              Sign up with Google
+            </button>
+          </div>
+        </div>
+        <div className="already">
+          <p>
+            Already have account? <NavLink to={"/login"} title="Login">Log in</NavLink>
+          </p>
         </div>
       </div>
     </div>

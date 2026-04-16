@@ -59,7 +59,7 @@ function Product() {
             </div>
           </div>
 
-          <button className="cart" style={{ background: "#2ec4b6" }}>
+          <button className="cart" style={{ background: "black" }}>
             ADD TO CART
           </button>
         </div>

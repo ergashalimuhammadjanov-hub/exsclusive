@@ -296,68 +296,13 @@
   margin-bottom: 100px;
   padding: 50px 0px;
 }
-
-/* From Uiverse.io by vinodjangid07 */
-.Btn-Container {
-  display: flex;
-  width: 170px;
-  height: fit-content;
-  background-color: #db4444;
-  border-radius: 40px;
-  box-shadow: 0px 5px 10px #bebebe;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-}
-.icon-Container {
-  width: 45px;
-  height: 45px;
-  background-color: #70d727;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 3px solid #1d2129;
-}
-.text {
-  width: calc(170px - 45px);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.1em;
-  letter-spacing: 1.2px;
-}
-.icon-Container svg {
-  transition-duration: 1.5s;
-}
-.Btn-Container:hover .icon-Container svg {
-  transition-duration: 1.5s;
-  animation: arrow 1s linear infinite;
-}
-@keyframes arrow {
-  0% {
-    opacity: 0;
-    margin-left: 0px;
-  }
-  100% {
-    opacity: 1;
-    margin-left: 10px;
-  }
-}
-
 .selling {
   display: flex;
   align-items: center;
+  height: 50px;
   justify-content: space-between;
 }
 
-.Btn-Container {
-  margin-top: 210px;
-  margin-right: 40px;
-}
 .prodectss {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -365,6 +310,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 100px auto;
+  padding: 100px 0px;
 }
 .music-box {
   color: #fff;
@@ -484,14 +430,14 @@
 
 /* From Uiverse.io by Shakil-Babu */
 .btn {
-  background-color: #00bfa6;
+  background-color: #DB4444;
   padding: 14px 40px;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
   border-radius: 10px;
-  border: 2px dashed #00bfa6;
+  border: 2px dashed black;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -619,4 +565,21 @@
 }
 .arrimg img:hover {
   transform: scale(1.1);
+}
+
+.viewall {
+  color: #fafafa;
+  font-size: 16px;
+  font-weight: 500;
+  background: #db4444;
+  width: 139px;
+  height: 46px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.viewall:hover{
+  transform: translateY(-2px) scale(1.01);
+  background: #ce3c3c;
 }

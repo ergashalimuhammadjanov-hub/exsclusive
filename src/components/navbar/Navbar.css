@@ -14,7 +14,7 @@ nav {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
 .navbar1 {
@@ -30,76 +30,9 @@ nav {
   cursor: default;
   position: relative;
   display: inline-block;
-
-  /* Gradient text */
-  background: linear-gradient(120deg, #ffffff, #cfcfcf, #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Soft glow */
-  text-shadow:
-    0 0 10px rgba(0, 0, 0, 0.258),
-    0 0 20px rgba(0, 0, 0, 0);
-
-  /* Animations */
-  animation:
-    floatSmooth 6s ease-in-out infinite,
-    gradientShift 8s linear infinite;
+  cursor: pointer;
 }
 
-/* Shine layer */
-.logo h1::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.433),
-    transparent
-  );
-
-  transform: skewX(-20deg);
-  animation: shineMove 5s ease-in-out infinite;
-}
-
-/* Floating motion */
-@keyframes floatSmooth {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-/* Gradient animation */
-@keyframes gradientShift {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 200%;
-  }
-}
-
-/* Shine animation */
-@keyframes shineMove {
-  0% {
-    left: -120%;
-  }
-  50% {
-    left: 120%;
-  }
-  100% {
-    left: 120%;
-  }
-}
 .navbar p {
   font-weight: 400;
   font-size: 14px;
@@ -211,7 +144,8 @@ nav {
   list-style: none;
 }
 
-.pages ul li , a {
+.pages ul li,
+a {
   font-weight: 500;
   font-size: 16px;
   color: #000000;
@@ -249,79 +183,92 @@ nav {
   transition: all 0.2s ease;
 }
 
-.carttt {
+.icon {
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.user {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user:hover {
+  color: #db4444;
+  transform: translateY(-2px);
+}
+
+.hearttt {
   width: 25px;
   height: 25px;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .hearttt:hover {
-  transform: scale(1.2);
-  color: red;
-}
-.carttt:hover {
-  transform: scale(1.2);
-  color: #2ec4b6;
+  color: #ff3b3b;
+  transform: scale(1.25);
 }
 
-/* From Uiverse.io by satyamchaudharydev */
-/* The switch - the box around the slider */
+.carttt {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carttt:hover {
+  color: #2ec4b6;
+  transform: rotate(-10deg) scale(1.15);
+}
+
 .switch {
   display: block;
   --width-of-switch: 3.5em;
   --height-of-switch: 2em;
-  /* size of sliding icon -- sun and moon */
   --size-of-icon: 1.4em;
-  /* it is like a inline-padding of switch */
   --slider-offset: 0.3em;
   position: relative;
   width: var(--width-of-switch);
   height: var(--height-of-switch);
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
-.slider {
+.modal {
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
+  top: 60px;
   right: 0;
-  bottom: 0;
-  background-color: #f4f4f5;
-  transition: 0.4s;
-  border-radius: 30px;
+
+  width: 300px;
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(61, 51, 62, 0.85) 0%,
+    rgba(43, 38, 44, 0.92) 100%
+  );
+
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  color: #fafafa;
+  display: none;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: var(--size-of-icon, 1.4em);
-  width: var(--size-of-icon, 1.4em);
-  border-radius: 20px;
-  left: var(--slider-offset, 0.3em);
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #303136;
-}
-
-input:checked + .slider:before {
-  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
-  background: #303136;
-  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
-  box-shadow:
-    inset -3px -2px 5px -2px #8983f7,
-    inset -10px -4px 0 0 #a3dafb;
+.mod {
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  gap: 15px;
+  text-align: start;
 }

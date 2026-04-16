@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -26,15 +27,21 @@ function Navbar() {
         <div className="container">
           <div className="components">
             <div className="logo">
-              <h1>Exclusive</h1>
+              <a href="">
+                <h1>Exclusive</h1>
+              </a>
             </div>
             <div className="pages">
               <ul>
                 <li>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li>Contact</li>
-                <li>About</li>
+                <li>
+                  <NavLink to="/contact">Contact</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/about">About</NavLink>
+                </li>
                 <li>
                   <NavLink to="/signup">Sign Up</NavLink>
                 </li>
@@ -58,10 +65,29 @@ function Navbar() {
               </div>
               <FaRegHeart className="hearttt" />
               <FaCartShopping className="carttt" />
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider"></span>
-              </label>
+              <FaRegUser className="user" />
+              <div className="modal">
+                <div className="mod">
+                  <img src="./imgs/userrr.svg" alt="" />
+                  <p>Manage My Account</p>
+                </div>
+                <div className="mod">
+                  <img src="./imgs/icon-mallbag.svg" alt="" />
+                  <p>My Order</p>
+                </div>
+                <div className="mod">
+                  <img src="./imgs/icon-cancel.svg" alt="" />
+                  <p>My Cancellations</p>
+                </div>
+                <div className="mod">
+                  <img src="./imgs/Icon-Reviews.svg" alt="" />
+                  <p>My Reviews</p>
+                </div>
+                <div className="mod">
+                  <img src="./imgs/Icon-logout.svg" alt="" />
+                  <p>Logout</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
