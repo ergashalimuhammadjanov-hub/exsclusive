@@ -155,7 +155,7 @@ function Home() {
           <div className="arrival">
             <div className="arr_left">
               <div className="arrimg">
-                <img src="/imgs/Frame 684.svg" alt="" />
+                <img src="./imgs/Frame 684.svg" alt="" />
               </div>
               <div className="arrivaltxt">
                 <h3>PlayStation 5</h3>

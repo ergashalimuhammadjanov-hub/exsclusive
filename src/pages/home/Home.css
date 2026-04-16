@@ -318,7 +318,7 @@
   max-width: 500px;
 }
 .slideImg {
-  background-image: url("./public/imgs/Frame 600.svg");
+  background-image: url("/imgs/Frame 600.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
