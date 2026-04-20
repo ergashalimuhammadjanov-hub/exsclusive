@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { IoCloseCircle } from "react-icons/io5";
 
 function Navbar() {
+  const [modal, setModal] = useState(false);
   return (
     <nav>
       <div className="navbar1">
@@ -48,7 +50,7 @@ function Navbar() {
               </ul>
             </div>
             <div className="search">
-              <div class="InputContainer">
+              <div className="InputContainer">
                 <input
                   placeholder="Search"
                   id="input"
@@ -65,8 +67,9 @@ function Navbar() {
               </div>
               <FaRegHeart className="hearttt" />
               <FaCartShopping className="carttt" />
-              <FaRegUser className="user" />
-              <div className="modal">
+              <FaRegUser className="user" onClick={() => setModal(true)} />
+              <div className={`modal ${modal ? "active" : ""}`}>
+                <IoCloseCircle className="modalClose" onClick={() => setModal(false)} />
                 <div className="mod">
                   <img src="./imgs/userrr.svg" alt="" />
                   <p>Manage My Account</p>
