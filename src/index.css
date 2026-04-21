@@ -25,10 +25,9 @@
 }
 
 a:active {
-  /* Drop shadow text-shadowga qaraganda ancha "silliq" chiqadi */
   filter: drop-shadow(0 5px 8px rgba(17, 142, 142, 0.5));
   transform: scale(0.98);
-  color: rgb(15, 130, 130);
+  color: rgb(255, 29, 29);
 }
 
 a.active {

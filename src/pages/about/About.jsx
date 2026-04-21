@@ -197,7 +197,6 @@ function About() {
           </ul>
         </div>
       </div>
-      <img className="paly" src="./imgs/Frame 883.svg" alt="" />
 
       <div className="services">
         <div className="services_box">

@@ -1,0 +1,270 @@
+.product-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  font-family: "Inter", sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  scale: 0.9;
+}
+
+.thumbnail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.thumb-item {
+  width: 150px;
+  height: 160px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.thumb-item img {
+  width: 100%;
+  /* object-fit: cover; */
+  display: block;
+}
+
+.thumb-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Asosiy Rasm */
+.main-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-blob-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Ma'lumotlar */
+.product-details {
+  flex: 1;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.breadcrumb span {
+  color: #000;
+  font-weight: 600;
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stars {
+  color: #ffad33;
+}
+
+.discount_price {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.discount_price h2{
+    font-weight: 500;
+    font-size: 28px;
+    color: black;
+}
+.description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* Option Styles */
+.option-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.color-circle.active {
+  border-color: #000;
+}
+.green {
+  background: #00ff66;
+}
+.red {
+  background: #db4444;
+}
+.black {
+  background: #000;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+}
+.size-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.size-btn.active,
+.size-btn:hover {
+  background: #db4444;
+  color: #fff;
+  border-color: #db4444;
+}
+
+/* Actions */
+.purchase-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.quantity-selector {
+  display: flex;
+  border: 1px solid #888;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantity-selector button {
+  padding: 8px 15px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.quantity-selector button:hover {
+  background: #db4444;
+  color: #fff;
+}
+
+.quantity-selector input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
+  font-weight: 600;
+}
+
+.buy-now-btn {
+  flex: 1;
+  background: #db4444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.buy-now-btn:hover {
+  opacity: 0.9;
+}
+
+/* Delivery */
+.delivery-info {
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.info-row:first-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.info-title {
+  font-weight: 600;
+  margin: 0;
+}
+.info-sub {
+  font-size: 12px;
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.Aboutpr{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    margin-bottom: -80px;
+}
+.Aboutpr h1{
+    font-weight: 500;
+    font-size: 26px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #555;
+}

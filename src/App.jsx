@@ -9,6 +9,8 @@ import Login from "./pages/login/Login";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import { getCategory, getProducts } from "./services";
+import Addmodal from "./components/addtocardmodal/Addmodal";
+import ProductDetail from "./components/productDetail/ProductDetail";
 export const DataContext = createContext();
 
 function App() {
@@ -20,7 +22,6 @@ function App() {
     });
 
     getProducts()?.then((infos) => {
-
       infos && setProductData(infos);
     });
   }, []);
@@ -29,12 +30,14 @@ function App() {
     <>
       <DataContext.Provider value={{ categoryData, productData }}>
         <Navbar />
+        <Addmodal />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/productdetail/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </DataContext.Provider>

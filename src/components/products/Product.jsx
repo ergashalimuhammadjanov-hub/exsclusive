@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.css";
 import Raiting from "../raiting/Raiting";
 import { baseUrl } from "../../services";
 import { picture } from "framer-motion/client";
 import { FaEye } from "react-icons/fa";
+import { daDK } from "@mui/material/locale";
+import { NavLink } from "react-router-dom";
+import ProductDetail from "../productDetail/ProductDetail";
 function Product({ item }) {
+  // const [cartModal, setcartModal] = useState(false);
   return (
     <div className="card">
       <div className="imgBox">
@@ -29,9 +33,9 @@ function Product({ item }) {
         </div>
       </div>
       <div className="cardLike">
-        <label class="ui-like">
+        <label className="ui-like">
           <input type="checkbox" />
-          <div class="like">
+          <div className="like">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="">
               <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
               <g
@@ -47,12 +51,22 @@ function Product({ item }) {
         </label>
       </div>
       <div className="eye">
-        <FaEye />
+        <NavLink to={`/productdetail/${item?.id}`}>
+          <FaEye />
+        </NavLink>
       </div>
 
-      <button className="cart" style={{ background: "black" }}>
+      <button
+        // onClick={() => {
+        //   setcartModal(true);
+        //   document.querySelector(".overlay").classList.add("active");
+        // }}
+        className="cart"
+        style={{ background: "black" }}
+      >
         ADD TO CART
       </button>
+      {/* <div className={`overlay ${cartModal ? "active" : ""}`}></div> */}
     </div>
   );
 }
