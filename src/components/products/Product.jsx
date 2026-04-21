@@ -1,69 +1,58 @@
 import React from "react";
 import "./Product.css";
 import Raiting from "../raiting/Raiting";
-function Product() {
+import { baseUrl } from "../../services";
+import { picture } from "framer-motion/client";
+import { FaEye } from "react-icons/fa";
+function Product({ item }) {
   return (
-    <div className="container">
-      <div className="cards">
-        <div className="card">
-          <div className="imgBox">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              alt="product"
-            />
+    <div className="card">
+      <div className="imgBox">
+        <img src={`${baseUrl}${item?.pictures[0]}`} />
+      </div>
+
+      <div className="content">
+        {/* <h3>{item?.category.title}</h3> */}
+        <p>{item?.title}</p>
+
+        <div className="price_raiting">
+          <div className="prices">
+            <span className="discount_price">
+              ${(item?.discount_price / 12000).toFixed(2)}
+            </span>
+            <span className="price">${(item?.price / 12000).toFixed(2)}</span>
           </div>
 
-          <div className="content">
-            <h3>CLUSE</h3>
-            <p>
-              This La Bohème model features an ultrathin case with a 38 mm dia
-            </p>
-
-            <div className="price_raiting">
-              <span className="price">$60</span>
-              <Raiting />
-            </div>
+          <div className="raiting">
+            <Raiting />
           </div>
-          <div className="cardLike">
-            <div title="Like" class="heart-container">
-              <input id="Give-It-An-Id" class="checkbox" type="checkbox" />
-              <div class="svg-container">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="svg-outline"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="svg-filled"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="100"
-                  width="100"
-                  class="svg-celebrate"
-                >
-                  <polygon points="10,10 20,20"></polygon>
-                  <polygon points="10,50 20,50"></polygon>
-                  <polygon points="20,80 30,70"></polygon>
-                  <polygon points="90,10 80,20"></polygon>
-                  <polygon points="90,50 80,50"></polygon>
-                  <polygon points="80,80 70,70"></polygon>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <button className="cart" style={{ background: "black" }}>
-            ADD TO CART
-          </button>
         </div>
       </div>
+      <div className="cardLike">
+        <label class="ui-like">
+          <input type="checkbox" />
+          <div class="like">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="">
+              <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                id="SVGRepo_tracerCarrier"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path>
+              </g>
+            </svg>
+          </div>
+        </label>
+      </div>
+      <div className="eye">
+        <FaEye />
+      </div>
+
+      <button className="cart" style={{ background: "black" }}>
+        ADD TO CART
+      </button>
     </div>
   );
 }

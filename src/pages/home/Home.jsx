@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Home.css";
 import Slider from "../../components/homeslider/Slider";
 import { Slide } from "@mui/material";
 import Product from "../../components/products/Product";
 import Countdown from "react-countdown";
+import { DataContext } from "../../App";
+import Marquee from "react-fast-marquee";
 
 function Home() {
+  const { categoryData, productData } = useContext(DataContext);
+
   return (
     <div>
       <div className="hero">
         {/* LEFT MENU */}
         <div className="sidebar">
           <ul>
-            <li>
-              Woman’s Fashion <span>›</span>
-            </li>
+            {categoryData?.map((item) => {
+              return (
+                <li key={item?.id}>
+                  {item?.title} <span>›</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -25,43 +33,28 @@ function Home() {
           <h2>Flash Sales</h2>
         </div>
         <div className="home_poducts">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {productData?.slice(0, 4).map((item) => {
+            return <Product key={item?.id} item={item} />;
+          })}
         </div>
-        
+
         <section className="Category">
           <div className="sales">
             <h2>Categories</h2>
           </div>
           <h1 className="h1anim">Browse By Category</h1>
-          <div className="categoryCards">
-            <div className="cat_yCard">
-              <img src="/imgs/Category-CellPhone.svg" alt="" />
-              <h3>Phones</h3>
+          <Marquee>
+            <div className="categoryCards">
+              {categoryData?.map((item) => {
+                return (
+                  <div key={item?.id} className="cat_yCard">
+                    <img src={item?.image} />
+                    <h3>{item?.title}</h3>
+                  </div>
+                );
+              })}
             </div>
-            <div className="cat_yCard">
-              <img src="/imgs/Category-Computer.svg" alt="" />
-              <h3>Computers</h3>
-            </div>
-            <div className="cat_yCard">
-              <img src="/imgs/Category-SmartWatch.svg" alt="" />
-              <h3>SmartWatch</h3>
-            </div>
-            <div className="cat_yCard">
-              <img src="/imgs/Category-Headphone.svg" alt="" />
-              <h3>HeadPhones</h3>
-            </div>
-            <div className="cat_yCard">
-              <img src="/imgs/Category-Gamepad.svg" alt="" />
-              <h3>Gaming</h3>
-            </div>
-            <div className="cat_yCard">
-              <img src="/imgs/Category-CellPhone.svg" alt="" />
-              <h3>Phones</h3>
-            </div>
-          </div>
+          </Marquee>
         </section>
         <section>
           <div className="selling">
@@ -74,13 +67,12 @@ function Home() {
             <button className="viewall">View All</button>
           </div>
           <div className="prodectss">
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            {productData?.slice(7, 11).map((item) => {
+              return <Product item={item} />;
+            })}
           </div>
           <div className="slideImg">
-            <div class="music-box">
+            <div className="music-box">
               <p className="category">Categories</p>
 
               <h1 className="title">
@@ -115,16 +107,11 @@ function Home() {
             <h1 className="h1anim">Explore Our Products</h1>
           </div>
           <div className="prodectss">
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            {productData?.slice(12, 16).map((item) => {
+              return <Product item={item} />;
+            })}
           </div>
-          <button class="btn"> View All Products</button>
+          <button className="btn"> View All Products</button>
         </section>
         <section>
           <div className="sell">

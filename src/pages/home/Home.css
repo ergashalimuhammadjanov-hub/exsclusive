@@ -10,6 +10,7 @@
   width: 250px;
   border-right: 1px solid #ddd;
   padding-right: 20px;
+  line-height: 50px;
 }
 
 .sidebar ul {
@@ -20,9 +21,15 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 450;
   cursor: pointer;
   color: #333;
+  text-shadow: 1px 1px 5px rgba(128, 128, 128, 0.296);
+}
+
+.sidebar li:hover {
+  color: red;
 }
 
 .sidebar li span {
@@ -93,6 +100,8 @@
 .home_poducts {
   display: flex;
   justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
 .timer {
@@ -167,11 +176,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-
 .categoryCards {
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  /* justify-content: space-between; */
+  gap: 110px;
   margin-top: 100px;
 }
 
@@ -186,6 +194,15 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+.categoryCards .cat_yCard h3 {
+  font-weight: 500;
+  font-size: 16px;
+}
+.categoryCards .cat_yCard img {
+  width: 60px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 .categoryCards .cat_yCard:hover {
@@ -239,13 +256,12 @@
 }
 
 .prodectss {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 100px auto;
-  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+    margin-top: 200px;
+
 }
 .music-box {
   color: #fff;
@@ -363,7 +379,7 @@
 
 /* From Uiverse.io by Shakil-Babu */
 .btn {
-  background-color: #DB4444;
+  background-color: #db4444;
   padding: 14px 40px;
   color: #fff;
   text-transform: uppercase;
@@ -512,7 +528,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.viewall:hover{
+.viewall:hover {
   transform: translateY(-2px) scale(1.01);
   background: #ce3c3c;
 }
