@@ -6,24 +6,41 @@ import Product from "../../components/products/Product";
 import Countdown from "react-countdown";
 import { DataContext } from "../../App";
 import Marquee from "react-fast-marquee";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
 function Home() {
   const { categoryData, productData } = useContext(DataContext);
-
+  
   return (
     <div>
       <div className="hero">
-        {/* LEFT MENU */}
         <div className="sidebar">
-          <ul>
-            {categoryData?.map((item) => {
+          {categoryData ? (
+            <ul>
+              {categoryData?.map((item) => {
+                return (
+                  <li key={item?.id}>
+                    {item?.title} <span>›</span>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            [1, 1, 1, 1, 1].map((item) => {
               return (
-                <li key={item?.id}>
-                  {item?.title} <span>›</span>
-                </li>
+                <div className="skeleton">
+                  <Stack spacing={1} class="row">
+                    <Skeleton variant="circular" width={40} height={40} />
+                    <Skeleton
+                      variant="text"
+                      sx={{ fontSize: "1rem", width: 150 }}
+                    />
+                  </Stack>
+                </div>
               );
-            })}
-          </ul>
+            })
+          )}
         </div>
 
         <Slider />
@@ -33,9 +50,22 @@ function Home() {
           <h2>Flash Sales</h2>
         </div>
         <div className="home_poducts">
-          {productData?.slice(0, 4).map((item) => {
-            return <Product key={item?.id} item={item} />;
-          })}
+          {productData
+            ? productData?.slice(0, 4).map((item) => {
+                return <Product key={item?.id} item={item} />;
+              })
+            : [1, 1, 1, 1].map((item) => {
+                return (
+                  <div className="skeleton-wrapper">
+                    <Stack spacing={1}>
+                      <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                      <Skeleton variant="circular" width={60} height={60} />
+                      <Skeleton variant="rectangular" width={210} height={60} />
+                      <Skeleton variant="rounded" width={210} height={60} />
+                    </Stack>
+                  </div>
+                );
+              })}
         </div>
 
         <section className="Category">
@@ -67,9 +97,26 @@ function Home() {
             <button className="viewall">View All</button>
           </div>
           <div className="prodectss">
-            {productData?.slice(7, 11).map((item) => {
-              return <Product item={item} />;
-            })}
+            {productData
+              ? productData?.slice(7, 11).map((item) => {
+                  return <Product key={item?.id} item={item} />;
+                })
+              : [1, 1, 1, 1].map((item) => {
+                  return (
+                    <div className="skeleton-wrapper">
+                      <Stack spacing={1}>
+                        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton
+                          variant="rectangular"
+                          width={210}
+                          height={60}
+                        />
+                        <Skeleton variant="rounded" width={210} height={60} />
+                      </Stack>
+                    </div>
+                  );
+                })}
           </div>
           <div className="slideImg">
             <div className="music-box">
@@ -107,9 +154,26 @@ function Home() {
             <h1 className="h1anim">Explore Our Products</h1>
           </div>
           <div className="prodectss">
-            {productData?.slice(12, 16).map((item) => {
-              return <Product item={item} />;
-            })}
+            {productData
+              ? productData?.slice(22, 26).map((item) => {
+                  return <Product key={item?.id} item={item} />;
+                })
+              : [1, 1, 1, 1].map((item) => {
+                  return (
+                    <div className="skeleton-wrapper">
+                      <Stack spacing={1}>
+                        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                        <Skeleton variant="circular" width={60} height={60} />
+                        <Skeleton
+                          variant="rectangular"
+                          width={210}
+                          height={60}
+                        />
+                        <Skeleton variant="rounded" width={210} height={60} />
+                      </Stack>
+                    </div>
+                  );
+                })}
           </div>
           <button className="btn"> View All Products</button>
         </section>

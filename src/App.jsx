@@ -11,11 +11,13 @@ import Contact from "./pages/contact/Contact";
 import { getCategory, getProducts } from "./services";
 import Addmodal from "./components/addtocardmodal/Addmodal";
 import ProductDetail from "./components/productDetail/ProductDetail";
+import Wishlist from "./components/wishlist/Wishlist";
+import Accaunt from "./pages/accaunt/Accaunt";
 export const DataContext = createContext();
 
 function App() {
-  const [categoryData, setCategoryData] = useState([]);
-  const [productData, setProductData] = useState([]);
+  const [categoryData, setCategoryData] = useState();
+  const [productData, setProductData] = useState();
   useEffect(() => {
     getCategory()?.then((info) => {
       setCategoryData(info);
@@ -38,6 +40,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/productdetail/:id" element={<ProductDetail />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="accaunt" element={<Accaunt />} />
         </Routes>
         <Footer />
       </DataContext.Provider>

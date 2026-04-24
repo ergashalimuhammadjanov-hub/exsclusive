@@ -65,15 +65,24 @@ function Navbar() {
                   </svg>
                 </label>
               </div>
-              <FaRegHeart className="hearttt" />
+              <NavLink to={"/wishlist"}>
+                <FaRegHeart className="hearttt" />
+              </NavLink>
               <FaCartShopping className="carttt" />
               <FaRegUser className="user" onClick={() => setModal(true)} />
               <div className={`modal ${modal ? "active" : ""}`}>
-                <IoCloseCircle className="modalClose" onClick={() => setModal(false)} />
+                <IoCloseCircle
+                  className="modalClose"
+                  onClick={() => setModal(false)}
+                />
+
                 <div className="mod">
                   <img src="./imgs/userrr.svg" alt="" />
-                  <p>Manage My Account</p>
+                  <NavLink to={"/accaunt"}>
+                    <p className="mod-text">Manage My Account</p>
+                  </NavLink>
                 </div>
+
                 <div className="mod">
                   <img src="./imgs/icon-mallbag.svg" alt="" />
                   <p>My Order</p>

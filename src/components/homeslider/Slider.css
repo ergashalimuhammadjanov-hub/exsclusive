@@ -2,6 +2,7 @@
   width: 950px;
   height: 50vh;
   border-radius: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.182);
 }
 
 .swiper-slide {

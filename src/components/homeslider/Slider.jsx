@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Slider.css";
+import Skeleton from "@mui/material/Skeleton";
+import Box from "@mui/material/Box";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -27,17 +27,24 @@ function Slider() {
         className="mySwiper"
       >
         <SwiperSlide>
+          <img src="https://miro.medium.com/0*DQjppkTFMfKMDy3f" alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
           <img
             src="https://media.about.nike.com/img/d436e535-3c11-4c54-a798-249accc1f071/rg11hh-p01-fa24-rtp-nike-electric-nouveau-sport-product-superiority-ta-oly-hero-pack-v1-r2.jpg?m=eyJlZGl0cyI6eyJqcGVnIjp7InF1YWxpdHkiOjEwMH0sIndlYnAiOnsicXVhbGl0eSI6MTAwfSwiZXh0cmFjdCI6eyJsZWZ0IjoyMzQsInRvcCI6MCwid2lkdGgiOjI1MzIsImhlaWdodCI6MTY4OH0sInJlc2l6ZSI6eyJ3aWR0aCI6Mzg0MH19fQ%3D%3D&s=da91c4d8d2197eb68971fb1e5ffb5c2f2499638a011b5cea43c1cdd955f51bf3"
             alt=""
           />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://miro.medium.com/0*DQjppkTFMfKMDy3f" alt="" />
-        </SwiperSlide>
+
         <SwiperSlide>
           <img
             src="https://www.bedetti.it/wp-content/uploads/2022/11/banner-hublot-1.jpg"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://cellavenuestore.com/wp-content/uploads/2024/09/HUAWEI-FreeBuds-6i-HUAWEI-KSA_8_2560x1168.jpg"
             alt=""
           />
         </SwiperSlide>
@@ -50,6 +57,18 @@ function Slider() {
         <SwiperSlide>
           <img
             src="https://plus.unsplash.com/premium_photo-1661769021743-7139c6fc4ab9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXR5JTIwcHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://images.fonearena.com/blog/wp-content/uploads/2025/12/HONOR-WIN-launch-date.jpg"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://captaincreps.com/wp-content/uploads/2024/08/Loro-Piana-x-New-Balance-990v6-2.png"
             alt=""
           />
         </SwiperSlide>

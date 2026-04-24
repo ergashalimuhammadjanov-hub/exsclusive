@@ -1,0 +1,65 @@
+.product-card {
+  width: 290px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+  margin: 50px;
+}
+
+.wishlist{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0000006b;
+  flex-wrap: wrap;
+}
+
+.image-box {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn {
+  width: 100%;
+  margin-top: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.title {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}

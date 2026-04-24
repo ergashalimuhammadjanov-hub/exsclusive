@@ -293,15 +293,25 @@ a {
   opacity: 1;
 }
 
-.mod:hover{
+.mod:hover {
   color: red;
   cursor: pointer;
   user-select: none;
 }
 
-.mod img{
+.mod img {
   transition: all 0.2s ease-in-out;
 }
-.mod img:hover{
+.mod img:hover {
   transform: scale(1.1);
+}
+
+.mod-text {
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.mod-text:hover {
+  color: red;
 }

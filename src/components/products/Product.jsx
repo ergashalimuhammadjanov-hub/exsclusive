@@ -7,8 +7,13 @@ import { FaEye } from "react-icons/fa";
 import { daDK } from "@mui/material/locale";
 import { NavLink } from "react-router-dom";
 import ProductDetail from "../productDetail/ProductDetail";
+import { GoHeart } from "react-icons/go";
 function Product({ item }) {
-  // const [cartModal, setcartModal] = useState(false);
+  const handleWishlist = () => {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    wishlist.push(item);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  };
   return (
     <div className="card">
       <div className="imgBox">
@@ -16,7 +21,6 @@ function Product({ item }) {
       </div>
 
       <div className="content">
-        {/* <h3>{item?.category.title}</h3> */}
         <p>{item?.title}</p>
 
         <div className="price_raiting">
@@ -33,22 +37,11 @@ function Product({ item }) {
         </div>
       </div>
       <div className="cardLike">
-        <label className="ui-like">
-          <input type="checkbox" />
-          <div className="like">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="">
-              <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                id="SVGRepo_tracerCarrier"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path>
-              </g>
-            </svg>
-          </div>
-        </label>
+        <GoHeart
+          onClick={() => {
+            handleWishlist();
+          }}
+        />
       </div>
       <div className="eye">
         <NavLink to={`/productdetail/${item?.id}`}>
@@ -56,17 +49,9 @@ function Product({ item }) {
         </NavLink>
       </div>
 
-      <button
-        // onClick={() => {
-        //   setcartModal(true);
-        //   document.querySelector(".overlay").classList.add("active");
-        // }}
-        className="cart"
-        style={{ background: "black" }}
-      >
+      <button className="cart" style={{ background: "black" }}>
         ADD TO CART
       </button>
-      {/* <div className={`overlay ${cartModal ? "active" : ""}`}></div> */}
     </div>
   );
 }
