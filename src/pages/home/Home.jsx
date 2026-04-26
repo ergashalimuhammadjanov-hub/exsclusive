@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Slider from "../../components/homeslider/Slider";
 import { Slide } from "@mui/material";
@@ -11,7 +12,7 @@ import Stack from "@mui/material/Stack";
 
 function Home() {
   const { categoryData, productData } = useContext(DataContext);
-  
+
   return (
     <div>
       <div className="hero">
@@ -20,7 +21,7 @@ function Home() {
             <ul>
               {categoryData?.map((item) => {
                 return (
-                  <li key={item?.id}>
+                  <li>
                     {item?.title} <span>›</span>
                   </li>
                 );
@@ -42,7 +43,6 @@ function Home() {
             })
           )}
         </div>
-
         <Slider />
       </div>
       <div className="container">
@@ -155,7 +155,7 @@ function Home() {
           </div>
           <div className="prodectss">
             {productData
-              ? productData?.slice(22, 26).map((item) => {
+              ? productData?.slice(20, 28).map((item) => {
                   return <Product key={item?.id} item={item} />;
                 })
               : [1, 1, 1, 1].map((item) => {
@@ -175,7 +175,9 @@ function Home() {
                   );
                 })}
           </div>
-          <button className="btn"> View All Products</button>
+          <Link to={"/allproducts"}>
+            <button className="btn"> View All Products</button>
+          </Link>
         </section>
         <section>
           <div className="sell">

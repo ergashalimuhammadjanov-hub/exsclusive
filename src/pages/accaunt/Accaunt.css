@@ -1,12 +1,13 @@
 .account-container {
   display: flex;
   gap: 40px;
-  padding: 40px;
+  padding: 60px;
   background: #f5f5f5;
 }
 
 .sidebar {
   width: 220px;
+  line-height: 40px;
 }
 
 .sidebar h4 {
@@ -93,8 +94,14 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  padding: 10px 22px;
+  transition: all 0.2s ease-in-out;
 }
-
+.cancel:hover {
+  background: #db4444;
+  border-radius: 5px;
+  color: #fff;
+}
 .save {
   background: #db4444;
   color: #fff;
@@ -102,4 +109,8 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.save:hover {
+  background: #b91010;
 }

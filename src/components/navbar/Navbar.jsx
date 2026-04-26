@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
 import { IoCloseCircle } from "react-icons/io5";
 
 function Navbar() {
@@ -29,9 +30,9 @@ function Navbar() {
         <div className="container">
           <div className="components">
             <div className="logo">
-              <a href="">
+              <Link to="/">
                 <h1>Exclusive</h1>
-              </a>
+              </Link>
             </div>
             <div className="pages">
               <ul>
@@ -65,10 +66,12 @@ function Navbar() {
                   </svg>
                 </label>
               </div>
-              <NavLink to={"/wishlist"}>
+              <Link to={"/wishlist"}>
                 <FaRegHeart className="hearttt" />
-              </NavLink>
-              <FaCartShopping className="carttt" />
+              </Link>
+              <Link to={"/cart"}>
+                <FaCartShopping className="carttt" />
+              </Link>
               <FaRegUser className="user" onClick={() => setModal(true)} />
               <div className={`modal ${modal ? "active" : ""}`}>
                 <IoCloseCircle

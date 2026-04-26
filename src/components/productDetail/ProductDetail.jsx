@@ -1,20 +1,22 @@
-import React from "react";
 import "./ProductDetail.css";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../App";
 import { baseUrl } from "../../services";
-
 function ProductDetail() {
   const { id } = useParams();
   const { productData } = useContext(DataContext);
 
   const product = productData.find((item) => String(item.id) === String(id));
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
   return (
     <div>
-        <div className="Aboutpr">
-            <h1>About This Product</h1>
-        </div>
       <div className="product-container">
         <div className="thumbnail-gallery">
           <div className="thumb-item">
@@ -65,8 +67,7 @@ function ProductDetail() {
           </div>
 
           <div className="discount_price">
-            <h2>Price :</h2>
-            ${Math.floor(product.discount_price / 12000)}
+            <h2>Price :</h2>${Math.floor(product.discount_price / 12000)}
           </div>
           <hr className="divider" />
 
@@ -91,8 +92,8 @@ function ProductDetail() {
 
           <div className="purchase-actions">
             <div className="quantity-selector">
-              <button>−</button>
-              <input type="number" value="1" readOnly />
+              <button>-</button>
+              <input type="number" value={1} readOnly />
               <button>+</button>
             </div>
             <button className="buy-now-btn">Buy Now</button>
@@ -100,7 +101,9 @@ function ProductDetail() {
 
           <div className="delivery-info">
             <div className="info-row">
-              <i className="icon-truck">🚚</i>
+              <i className="icon-truck">
+                <img src="/imgs/icon-delivery.svg" alt="" />
+              </i>
               <div>
                 <p className="info-title">Free Delivery</p>
                 <p className="info-sub">
@@ -110,7 +113,9 @@ function ProductDetail() {
             </div>
 
             <div className="info-row">
-              <i className="icon-return">🔄</i>
+              <i className="icon-return">
+                <img src="/imgs/Icon-return.svg" alt="" />
+              </i>
               <div>
                 <p className="info-title">Return Delivery</p>
                 <p className="info-sub">

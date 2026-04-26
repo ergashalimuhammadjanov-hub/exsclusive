@@ -34,7 +34,12 @@
 .imgBox:hover img {
   transform: scale(1.05);
 }
-
+.itemtitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* nechta qatordan keyin kesadi */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .content {
   padding: 20px;
 }
@@ -51,7 +56,7 @@
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 330px;
+  top: 312px;
 }
 
 .content p {
@@ -60,16 +65,17 @@
   margin-bottom: 16px;
 }
 
-.prices {
+.price_raiting .prices {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   line-height: 17px;
+  gap: 15px;
 }
 
-.price {
-  color: #999;
+.price_raiting .price {
   text-decoration: line-through;
   font-size: 15px;
+  color: #999;
 }
 
 .discount_price {
@@ -78,7 +84,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   /* color: #2ec4b6; */
-  color: #ff3b3b;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -114,13 +120,6 @@
 .cart:active {
   transform: scale(0.96);
 }
-
-.raiting {
-  position: absolute;
-  left: 140px;
-  top: -4px;
-}
-
 .cart:before,
 .cart:after {
   position: absolute;
@@ -243,7 +242,6 @@
   right: 5px;
 }
 
-
 .eye {
   position: absolute;
   top: 50px;
@@ -276,4 +274,25 @@
 
 .card:hover .eye {
   right: 5px;
+}
+
+.card:active {
+  box-shadow: 1px 1px 10px #c5141417;
+}
+
+.raiting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100px;
+  position: absolute;
+  top: 345px;
+  left: 20px;
+}
+
+.raiting .star {
+  color: gold;
+}
+.raiting span {
+  color: #000;
 }

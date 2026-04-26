@@ -25,11 +25,12 @@
 }
 
 a:active {
-  filter: drop-shadow(0 5px 8px rgba(17, 142, 142, 0.5));
+  /* filter: drop-shadow(0 5px 8px rgba(204, 104, 27, 0.5));
   transform: scale(0.98);
-  color: rgb(255, 29, 29);
+  color: rgb(255, 29, 29); */
 }
 
 a.active {
   color: #DB4444;
+  border-bottom: 2px solid red;
 }

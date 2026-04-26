@@ -13,6 +13,8 @@ import Addmodal from "./components/addtocardmodal/Addmodal";
 import ProductDetail from "./components/productDetail/ProductDetail";
 import Wishlist from "./components/wishlist/Wishlist";
 import Accaunt from "./pages/accaunt/Accaunt";
+import AllProducts from "./pages/allproducts/AllProducts";
+import Cart from "./pages/cart/Cart";
 export const DataContext = createContext();
 
 function App() {
@@ -41,7 +43,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/productdetail/:id" element={<ProductDetail />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="accaunt" element={<Accaunt />} />
+          <Route path="/accaunt" element={<Accaunt />} />
+          <Route path="/allproducts" element={<AllProducts />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </DataContext.Provider>
