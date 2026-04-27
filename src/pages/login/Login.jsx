@@ -1,7 +1,10 @@
-import React from "react";
+import { useEffect } from "react";
 import "./Login.css";
 
 function Login() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="login">
       <img className="login__image" src="./imgs/Side Image.svg" alt="" />

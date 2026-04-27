@@ -74,7 +74,8 @@
 
 .price_raiting .price {
   text-decoration: line-through;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 500;
   color: #999;
 }
 
@@ -296,3 +297,5 @@
 .raiting span {
   color: #000;
 }
+
+

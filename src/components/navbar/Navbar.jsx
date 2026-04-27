@@ -67,12 +67,12 @@ function Navbar() {
                 </label>
               </div>
               <Link to={"/wishlist"}>
-                <FaRegHeart className="hearttt" />
+                <FaRegHeart className="hearttt" title="wishlist"/>
               </Link>
               <Link to={"/cart"}>
-                <FaCartShopping className="carttt" />
+                <FaCartShopping className="carttt" title="cart"/>
               </Link>
-              <FaRegUser className="user" onClick={() => setModal(true)} />
+              <FaRegUser title="user" className="user" onClick={() => setModal(true)} />
               <div className={`modal ${modal ? "active" : ""}`}>
                 <IoCloseCircle
                   className="modalClose"

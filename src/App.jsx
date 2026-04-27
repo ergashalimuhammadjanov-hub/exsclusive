@@ -15,6 +15,7 @@ import Wishlist from "./components/wishlist/Wishlist";
 import Accaunt from "./pages/accaunt/Accaunt";
 import AllProducts from "./pages/allproducts/AllProducts";
 import Cart from "./pages/cart/Cart";
+import Error from "./pages/error/Error";
 export const DataContext = createContext();
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/accaunt" element={<Accaunt />} />
           <Route path="/allproducts" element={<AllProducts />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </DataContext.Provider>

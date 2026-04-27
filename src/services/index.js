@@ -37,3 +37,6 @@ export const getProducts = () => {
 };
 
 export const baseUrl = "https://ecommercev01.pythonanywhere.com";
+
+
+

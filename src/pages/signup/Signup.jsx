@@ -1,7 +1,10 @@
-import React from "react";
+import { useEffect } from "react";
 import "./Signup.css";
 import { NavLink } from "react-router-dom";
 function Signup() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="sign">
       <img src="./imgs/Side Image.svg" alt="" />
@@ -45,7 +48,10 @@ function Signup() {
         </div>
         <div className="already">
           <p>
-            Already have account? <NavLink to={"/login"} title="Login">Log in</NavLink>
+            Already have account?{" "}
+            <NavLink to={"/login"} title="Login">
+              Log in
+            </NavLink>
           </p>
         </div>
       </div>

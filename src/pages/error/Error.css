@@ -1,0 +1,7 @@
+/* Error.css */
+.error {
+  display: flex;
+  justify-content: center;  /* gorizontal markaz */
+  align-items: center;      /* vertikal markaz */
+  height: 70vh;            /* butun ekran balandligi */
+}
