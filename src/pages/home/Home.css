@@ -208,6 +208,7 @@
 .categoryCards .cat_yCard:hover {
   background: #db4444;
   color: rgb(230, 225, 225);
+  border: red;
 }
 
 .h1anim {
@@ -260,8 +261,7 @@
   justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
-    margin-top: 200px;
-
+  margin-top: 200px;
 }
 .music-box {
   color: #fff;
@@ -520,7 +520,7 @@
   background: #ce3c3c;
 }
 
-.row{
+.row {
   display: flex;
   gap: 20px;
   align-items: center;
@@ -529,5 +529,5 @@
 }
 
 .skeleton-wrapper {
-  margin: 30px; 
+  margin: 30px;
 }

@@ -4,11 +4,12 @@
   padding: 60px 0;
   width: 1400px;
   margin: auto;
+  user-select: none;
 }
 
 .login__image {
   max-width: 80%;
-  margin-left: 0px
+  margin-left: 0px;
 }
 
 .login__form {
@@ -109,12 +110,25 @@
   color: rgb(236, 16, 16);
 }
 
-.login__forgot:hover{
+.login__forgot:hover {
   color: #db4444d1;
 }
 
-.login__actions{
+.login__actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.signeyee {
+  position: absolute;
+  top: -25px;
+  cursor: pointer;
+  left: 340px;
+}
+.eyeofff {
+  position: absolute;
+  top: -25px;
+  cursor: pointer;
+  left: 340px;
 }

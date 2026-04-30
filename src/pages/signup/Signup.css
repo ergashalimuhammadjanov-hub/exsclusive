@@ -4,6 +4,7 @@
   padding: 60px 0px;
   width: 1400px;
   margin: auto;
+  user-select: none;
 }
 .sing_inputs {
   display: flex;
@@ -146,3 +147,18 @@
 .already p a:hover{
   color: red;
 }
+
+.signeye{
+  position: absolute;
+  top: -25px;
+  cursor: pointer;
+  left: 300px;
+}
+.eyeoff{
+  position: absolute;
+  top: -25px;
+  cursor: pointer;
+  left: 300px;
+}
+
+

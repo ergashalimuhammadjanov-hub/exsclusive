@@ -215,23 +215,25 @@
   top: 10px;
   right: -60px;
   opacity: 0.9;
-  width: 36px;
-  height: 36px;
-
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #ffffff23;
   border-radius: 50%;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-
   cursor: pointer;
   transition: 0.25s ease;
   scale: 0.8;
 }
-
+.cardLike .like {
+  scale: 1.5;
+  transition: all 0.2s ease-in;
+}
+.cardLike:hover .like {
+  color: red;
+}
 .cardLike:hover {
   transform: scale(1.03) translateY(-2px);
 
@@ -245,11 +247,11 @@
 
 .eye {
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: -60px;
   opacity: 0.9;
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
 
   display: flex;
   align-items: center;
@@ -259,7 +261,7 @@
   border-radius: 50%;
 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  color: rgb(122, 118, 118);
+  color: rgb(0, 0, 0);
   cursor: pointer;
   transition: 0.25s ease;
   user-select: none;
@@ -273,6 +275,13 @@
   opacity: 1;
 }
 
+.eye .koz {
+  scale: 1.3;
+  transition: all 0.2s ease-in;
+}
+.eye:hover .koz{
+  color: #3b82f6;
+}
 .card:hover .eye {
   right: 5px;
 }
@@ -297,5 +306,3 @@
 .raiting span {
   color: #000;
 }
-
-

@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { DataContext } from "../../App";
 import { baseUrl } from "../../services";
+import Skeleton from "@mui/material/Skeleton";
+import Product from "../../components/products/Product";
+
+
 function ProductDetail() {
   const { id } = useParams();
   const { productData } = useContext(DataContext);
@@ -125,6 +129,27 @@ function ProductDetail() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="Suggpr">
+        <h1 className="prdetai">Suggested products</h1>
+      </div>
+      <div className="detailProducts">
+        {productData
+          ? productData?.slice(11, 19).map((item) => {
+              return <Product key={item?.id} item={item} />;
+            })
+          : [1, 1, 1, 1].map((item) => {
+              return (
+                <div className="skeleton-wrapper">
+                  <Stack spacing={1}>
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                    <Skeleton variant="circular" width={60} height={60} />
+                    <Skeleton variant="rectangular" width={210} height={60} />
+                    <Skeleton variant="rounded" width={210} height={60} />
+                  </Stack>
+                </div>
+              );
+            })}
       </div>
     </div>
   );

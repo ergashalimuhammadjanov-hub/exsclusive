@@ -1,14 +1,24 @@
-import { useState } from "react";
 import "./Navbar.css";
 import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
-
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { DataContext } from "../../App";
+import { useEffect, useState, useContext } from "react";
 import { IoCloseCircle } from "react-icons/io5";
-
+import toast from "react-hot-toast";
 function Navbar() {
   const [modal, setModal] = useState(false);
+  const { token, setToken } = useContext(DataContext);
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+    setModal(false);
+    toast.success("Tizimdan chiqdingiz ✅");
+    navigate("/");
+  };
+
   return (
     <nav>
       <div className="navbar1">
@@ -67,12 +77,21 @@ function Navbar() {
                 </label>
               </div>
               <Link to={"/wishlist"}>
-                <FaRegHeart className="hearttt" title="wishlist"/>
+                <FaRegHeart className="hearttt" title="wishlist" />
               </Link>
               <Link to={"/cart"}>
-                <FaCartShopping className="carttt" title="cart"/>
+                <FaCartShopping className="carttt" title="cart" />
               </Link>
-              <FaRegUser title="user" className="user" onClick={() => setModal(true)} />
+              {token ? (
+                <FaRegUser
+                  title="user"
+                  className="user"
+                  onClick={() => setModal(true)}
+                />
+              ) : (
+                ""
+              )}
+
               <div className={`modal ${modal ? "active" : ""}`}>
                 <IoCloseCircle
                   className="modalClose"
@@ -98,7 +117,7 @@ function Navbar() {
                   <img src="./imgs/Icon-Reviews.svg" alt="" />
                   <p>My Reviews</p>
                 </div>
-                <div className="mod">
+                <div className="mod" onClick={logout} title="Log out">
                   <img src="./imgs/Icon-logout.svg" alt="" />
                   <p>Logout</p>
                 </div>

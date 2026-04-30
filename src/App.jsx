@@ -17,10 +17,14 @@ import AllProducts from "./pages/allproducts/AllProducts";
 import Cart from "./pages/cart/Cart";
 import Error from "./pages/error/Error";
 export const DataContext = createContext();
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [categoryData, setCategoryData] = useState();
   const [productData, setProductData] = useState();
+  const [token, setToken] = useState(
+    localStorage.getItem("token") ? localStorage.getItem("token") : null,
+  );
   useEffect(() => {
     getCategory()?.then((info) => {
       setCategoryData(info);
@@ -33,7 +37,9 @@ function App() {
 
   return (
     <>
-      <DataContext.Provider value={{ categoryData, productData }}>
+      <DataContext.Provider
+        value={{ categoryData, productData, token, setToken }}
+      >
         <Navbar />
         <Addmodal />
         <Routes>
@@ -51,6 +57,7 @@ function App() {
         </Routes>
         <Footer />
       </DataContext.Provider>
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 }
