@@ -247,10 +247,9 @@ a {
   height: 0;
 }
 
-.modal {
+/* .modal {
   position: absolute;
   top: 126px;
-  /* right: 0; */
   left: 1081px;
   width: 270px;
   margin: auto;
@@ -263,7 +262,7 @@ a {
   color: #fafafa;
   display: none;
   transition: all 0.3s ease-in-out;
-}
+} */
 
 .mod {
   display: flex;
@@ -271,29 +270,6 @@ a {
   line-height: 50px;
   gap: 15px;
   text-align: start;
-}
-
-.modalClose {
-  position: absolute;
-  right: 5px;
-  top: 4px;
-  scale: 1.6;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  border-radius: -20px;
-  background: red;
-  padding: 2px;
-  border-radius: 30%;
-
-  opacity: 0.5;
-}
-
-.modalClose:hover {
-  transform: scale(1.1);
-  color: red;
-  opacity: 1;
-  background: rgb(255, 255, 255);
 }
 
 .mod:hover {
@@ -317,4 +293,94 @@ a {
 
 .mod-text:hover {
   color: red;
+}
+
+/* overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.modal {
+  position: absolute;
+  top: 75px; 
+  right: 5%;
+  width: 250px;
+  z-index: 999;
+  
+  background: rgba(0, 0, 0, 0.7); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mod {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mod:hover {
+  background: rgba(255, 255, 255, 0.184);
+  transform: translateX(2px);
+}
+
+.mod img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+}
+
+.mod:hover p {
+  color: rgb(147, 24, 24);
+}
+
+.mod p,
+.mod-text {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mod a {
+  text-decoration: none;
+}
+
+.mod:last-child:hover {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.mod:last-child:hover p {
+  color: #d32f2f;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0; /* butun ekran */
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
 }

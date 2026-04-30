@@ -92,36 +92,44 @@ function Navbar() {
                 ""
               )}
 
-              <div className={`modal ${modal ? "active" : ""}`}>
-                <IoCloseCircle
-                  className="modalClose"
-                  onClick={() => setModal(false)}
-                />
+              {modal && (
+                <div
+                  className="overlay"
+                  onClick={() => setModal(false)} // tashqari bosilsa yopiladi
+                >
+                  <div
+                    className="modal"
+                    onClick={(e) => e.stopPropagation()} // ichida bosilsa yopilmaydi
+                  >
+                    <div className="mod">
+                      <img src="./imgs/userrr.svg" alt="" />
+                      <NavLink to={"/accaunt"}>
+                        <p className="mod-text">Manage My Account</p>
+                      </NavLink>
+                    </div>
 
-                <div className="mod">
-                  <img src="./imgs/userrr.svg" alt="" />
-                  <NavLink to={"/accaunt"}>
-                    <p className="mod-text">Manage My Account</p>
-                  </NavLink>
-                </div>
+                    <div className="mod">
+                      <img src="./imgs/icon-mallbag.svg" alt="" />
+                      <p>My Order</p>
+                    </div>
 
-                <div className="mod">
-                  <img src="./imgs/icon-mallbag.svg" alt="" />
-                  <p>My Order</p>
+                    <div className="mod">
+                      <img src="./imgs/icon-cancel.svg" alt="" />
+                      <p>My Cancellations</p>
+                    </div>
+
+                    <div className="mod">
+                      <img src="./imgs/Icon-Reviews.svg" alt="" />
+                      <p>My Reviews</p>
+                    </div>
+
+                    <div className="mod" onClick={logout}>
+                      <img src="./imgs/Icon-logout.svg" alt="" />
+                      <p>Logout</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="mod">
-                  <img src="./imgs/icon-cancel.svg" alt="" />
-                  <p>My Cancellations</p>
-                </div>
-                <div className="mod">
-                  <img src="./imgs/Icon-Reviews.svg" alt="" />
-                  <p>My Reviews</p>
-                </div>
-                <div className="mod" onClick={logout} title="Log out">
-                  <img src="./imgs/Icon-logout.svg" alt="" />
-                  <p>Logout</p>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
