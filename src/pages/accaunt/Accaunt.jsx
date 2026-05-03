@@ -1,7 +1,21 @@
-import React from "react";
-import "./Accaunt.css"
+import React, { useContext, useState, useEffect } from "react";
+import "./Accaunt.css";
+import { DataContext } from "../../App";
 
 function Accaunt() {
+  const { userInfo } = useContext(DataContext);
+  const [form, setForm] = useState({
+    firstName: "",
+    email: "",
+  });
+  useEffect(() => {
+    if (userInfo) {
+      setForm({
+        firstName: userInfo.first_name || "",
+        email: userInfo.email_or_phone || "",
+      });
+    }
+  }, [userInfo]);
   return (
     <div className="account-container">
       <div className="sidebar">
@@ -27,7 +41,11 @@ function Accaunt() {
         <div className="form-grid">
           <div>
             <label>First Name</label>
-            <input type="text" defaultValue="First Name" />
+            <input
+              type="text"
+              value={form.firstName}
+              onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+            />
           </div>
 
           <div>
@@ -37,7 +55,11 @@ function Accaunt() {
 
           <div>
             <label>Email</label>
-            <input type="email" placeholder="Eamil" />
+            <input
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
           </div>
 
           <div>

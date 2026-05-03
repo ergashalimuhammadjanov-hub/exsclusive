@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signUpFuc } from "../../services";
 import { IoEye } from "react-icons/io5";
 import { IoMdEyeOff } from "react-icons/io";
+import toast from "react-hot-toast";
 
 function Signup() {
   const [name, setName] = useState();
@@ -30,13 +31,19 @@ function Signup() {
                 info?.message ==
                 "Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tkazildi."
               ) {
+                toast.success(
+                  "Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tkazildi. ✅",
+                );
                 navigate("/login");
+              } else {
+                toast.error(info?.email_or_phone[0]);
               }
             });
           }}
         >
           <div class="input-container">
             <input
+              required
               onInput={(e) => {
                 setName(e.target.value);
               }}
@@ -51,6 +58,7 @@ function Signup() {
           </div>
           <div class="input-container">
             <input
+              required
               onInput={(e) => {
                 setEmail(e.target.value);
               }}
@@ -65,6 +73,7 @@ function Signup() {
           </div>
           <div class="input-container">
             <input
+              required
               onInput={(e) => {
                 setPassword(e.target.value);
               }}

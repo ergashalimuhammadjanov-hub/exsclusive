@@ -1,7 +1,37 @@
 /* Error.css */
 .error {
   display: flex;
-  justify-content: center;  /* gorizontal markaz */
-  align-items: center;      /* vertikal markaz */
-  height: 70vh;            /* butun ekran balandligi */
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+
+.errorBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.errorBtn button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  background: #db4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* hover */
+.errorBtn button:hover {
+  background: #b93636;
+  transform: translateY(-2px);
+}
+
+/* bosilganda */
+.errorBtn button:active {
+  transform: scale(0.97);
 }

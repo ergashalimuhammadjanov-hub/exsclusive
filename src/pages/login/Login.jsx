@@ -43,6 +43,7 @@ function Login() {
         >
           <div className="login__input-group">
             <input
+              required
               onInput={(e) => {
                 setEmail(e.target.value);
               }}
@@ -56,6 +57,7 @@ function Login() {
 
           <div className="login__input-group">
             <input
+              required
               onInput={(e) => {
                 setPassword(e.target.value);
               }}

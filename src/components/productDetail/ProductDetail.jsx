@@ -1,18 +1,18 @@
 import "./ProductDetail.css";
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
+import { useState } from "react";
 import { DataContext } from "../../App";
 import { baseUrl } from "../../services";
 import Skeleton from "@mui/material/Skeleton";
 import Product from "../../components/products/Product";
-
 
 function ProductDetail() {
   const { id } = useParams();
   const { productData } = useContext(DataContext);
 
   const product = productData.find((item) => String(item.id) === String(id));
-
+  const [activeImage, setActiveImage] = useState(0);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -23,36 +23,27 @@ function ProductDetail() {
     <div>
       <div className="product-container">
         <div className="thumbnail-gallery">
-          <div className="thumb-item">
-            <img
-              src={`${baseUrl}/${product?.pictures?.[0] || ""}`}
-              alt="thumb"
-            />
+          <div className="thumb-item" onClick={() => setActiveImage(0)}>
+            <img src={`${baseUrl}/${product?.pictures?.[0]}`} />
           </div>
-          <div className="thumb-item">
-            <img
-              src={`${baseUrl}/${product?.pictures?.[1] || ""}`}
-              alt="thumb"
-            />
+
+          <div className="thumb-item" onClick={() => setActiveImage(1)}>
+            <img src={`${baseUrl}/${product?.pictures?.[1]}`} />
           </div>
-          <div className="thumb-item">
-            <img
-              src={`${baseUrl}/${product?.pictures?.[2] || ""}`}
-              alt="thumb"
-            />
+
+          <div className="thumb-item" onClick={() => setActiveImage(2)}>
+            <img src={`${baseUrl}/${product?.pictures?.[2]}`} />
           </div>
-          <div className="thumb-item">
-            <img
-              src={`${baseUrl}/${product?.pictures?.[3] || ""}`}
-              alt="thumb"
-            />
+
+          <div className="thumb-item" onClick={() => setActiveImage(3)}>
+            <img src={`${baseUrl}/${product?.pictures?.[3]}`} />
           </div>
         </div>
 
         <div className="main-image-container">
           <div className="image-blob-bg">
             <img
-              src={`${baseUrl}${product?.pictures[0]}`}
+              src={`${baseUrl}/${product?.pictures?.[activeImage]}`}
               alt="Main Product"
               className="main-image"
             />

@@ -51,20 +51,7 @@
   color: #fff;
 }
 
-.footer_col li::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: #00ff66;
-  transition: 0.3s;
-}
 
-.footer_col li:hover::after {
-  width: 50%;
-}
 
 /* SUBSCRIBE */
 .subscribe {

@@ -125,10 +125,14 @@
   top: -25px;
   cursor: pointer;
   left: 340px;
+  scale: 1.5;
+  color: gray;
 }
 .eyeofff {
   position: absolute;
   top: -25px;
   cursor: pointer;
   left: 340px;
+  scale: 1.5;
+  color: gray;
 }

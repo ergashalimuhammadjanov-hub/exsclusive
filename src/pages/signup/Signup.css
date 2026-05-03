@@ -141,24 +141,25 @@
 
 .already p a {
   text-decoration: underline;
-
 }
 
-.already p a:hover{
+.already p a:hover {
   color: red;
 }
 
-.signeye{
+.signeye {
   position: absolute;
   top: -25px;
   cursor: pointer;
   left: 300px;
+  scale: 1.5;
+  color: gray;
 }
-.eyeoff{
+.eyeoff {
   position: absolute;
   top: -25px;
   cursor: pointer;
   left: 300px;
+  scale: 1.5;
+  color: gray;
 }
-
-
