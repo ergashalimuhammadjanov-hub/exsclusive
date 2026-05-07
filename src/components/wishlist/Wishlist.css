@@ -98,3 +98,16 @@
 .remove-btn:hover {
   color: red;
 }
+
+
+
+.wishlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.empty-wishlist {
+  text-align: center;
+}

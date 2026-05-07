@@ -46,7 +46,6 @@ function Product({ item }) {
               e.stopPropagation();
 
               addToWishlist(item.id).then((info) => {
-                console.log(info);
                 getData();
                 toast.success("Mahsulot sevimlilarga qo‘shildi ❤️");
               });

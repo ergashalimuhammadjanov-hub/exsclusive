@@ -30,10 +30,10 @@ function Home() {
               })}
             </ul>
           ) : (
-            [1, 1, 1, 1, 1].map((item) => {
+            [1, 1, 1, 1, 1].map((item, index) => {
               return (
-                <div className="skeleton">
-                  <Stack spacing={1} class="row">
+                <div key={index} className="skeleton">
+                  <Stack spacing={1} className="row">
                     <Skeleton variant="circular" width={40} height={40} />
                     <Skeleton
                       variant="text"
@@ -56,9 +56,9 @@ function Home() {
             ? productData?.slice(0, 4).map((item) => {
                 return <Product key={item?.id} item={item} />;
               })
-            : [1, 1, 1, 1].map((item) => {
+            : [1, 1, 1, 1].map((item, index) => {
                 return (
-                  <div className="skeleton-wrapper">
+                  <div key={index} className="skeleton-wrapper">
                     <Stack spacing={1}>
                       <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                       <Skeleton variant="circular" width={60} height={60} />
@@ -103,9 +103,9 @@ function Home() {
               ? productData?.slice(7, 11).map((item) => {
                   return <Product key={item?.id} item={item} />;
                 })
-              : [1, 1, 1, 1].map((item) => {
+              : [1, 1, 1, 1].map((item, index) => {
                   return (
-                    <div className="skeleton-wrapper">
+                    <div key={index} className="skeleton-wrapper">
                       <Stack spacing={1}>
                         <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                         <Skeleton variant="circular" width={60} height={60} />
@@ -160,9 +160,9 @@ function Home() {
               ? productData?.slice(20, 28).map((item) => {
                   return <Product key={item?.id} item={item} />;
                 })
-              : [1, 1, 1, 1].map((item) => {
+              : [1, 1, 1, 1].map((item, index) => {
                   return (
-                    <div className="skeleton-wrapper">
+                    <div key={index} className="skeleton-wrapper">
                       <Stack spacing={1}>
                         <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                         <Skeleton variant="circular" width={60} height={60} />

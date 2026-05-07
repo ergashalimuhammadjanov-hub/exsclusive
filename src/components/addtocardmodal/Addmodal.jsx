@@ -8,11 +8,7 @@ function Addmodal() {
         <div className="popup_close">×</div>
 
         <div className="popup_left">
-          <img
-            src="https://via.placeholder.com/300"
-            alt=""
-            className="popup_image"
-          />
+          <img src="https://picsum.photos/300" />
         </div>
 
         <div className="popup_right">
