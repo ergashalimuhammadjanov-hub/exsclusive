@@ -53,7 +53,7 @@ function Home() {
         </div>
         <div className="home_poducts">
           {productData
-            ? productData?.map((item) => {
+            ? productData?.slice(0, 4).map((item) => {
                 return <Product key={item?.id} item={item} />;
               })
             : [1, 1, 1, 1].map((item, index) => {
@@ -100,7 +100,7 @@ function Home() {
           </div>
           <div className="prodectss">
             {productData
-              ? productData?.map((item) => {
+              ? productData?.slice(7, 11).map((item) => {
                   return <Product key={item?.id} item={item} />;
                 })
               : [1, 1, 1, 1].map((item, index) => {
@@ -157,7 +157,7 @@ function Home() {
           </div>
           <div className="prodectss">
             {productData
-              ? productData?.map((item) => {
+              ? productData?.slice(20, 28).map((item) => {
                   return <Product key={item?.id} item={item} />;
                 })
               : [1, 1, 1, 1].map((item, index) => {
