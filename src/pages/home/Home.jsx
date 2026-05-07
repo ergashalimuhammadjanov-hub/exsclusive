@@ -21,9 +21,11 @@ function Home() {
             <ul>
               {categoryData?.map((item) => {
                 return (
-                  <li>
-                    {item?.title} <span>›</span>
-                  </li>
+                  <Link key={item.id} to={`/category/${item.id}`}>
+                    <li>
+                      {item?.title} <span>›</span>
+                    </li>
+                  </Link>
                 );
               })}
             </ul>

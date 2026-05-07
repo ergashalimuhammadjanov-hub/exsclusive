@@ -1,14 +1,16 @@
 import "./Product.css";
-import { baseUrl } from "../../services";
-import { picture } from "framer-motion/client";
+import { baseUrl, addToWishlist } from "../../services";
 import { FaStar } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
-import { daDK } from "@mui/material/locale";
-import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ProductDetail from "../productDetail/ProductDetail";
 import { GoHeart } from "react-icons/go";
+import { FcLike } from "react-icons/fc";
+import { useContext } from "react";
+import { DataContext } from "../../App";
+import toast from "react-hot-toast";
+
 function Product({ item }) {
+  const { getData } = useContext(DataContext);
   return (
     <div className="product_card">
       <Link to={`/productdetail/${item?.id}`}>
@@ -35,11 +37,30 @@ function Product({ item }) {
               <span>{item?.stars}</span>
             </div>
           </div>
-          <div className="cardLike" title="like">
-            <GoHeart className="like"/>
+
+          <div
+            className="cardLike"
+            title="like"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              addToWishlist(item.id).then((info) => {
+                console.log(info);
+                getData();
+                toast.success("Mahsulot sevimlilarga qo‘shildi ❤️");
+              });
+            }}
+          >
+            {item?.is_liked ? (
+              <FcLike className="like" />
+            ) : (
+              <GoHeart className="like" />
+            )}
           </div>
+
           <div className="eye" title="this ptoduct">
-            <FaEye className="koz"/>
+            <FaEye className="koz" />
           </div>
 
           <button
@@ -48,6 +69,10 @@ function Product({ item }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
+
+              addToWishlist(item.id).then((info) => {
+                console.log(info);
+              });
             }}
           >
             ADD TO CART

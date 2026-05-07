@@ -6,19 +6,30 @@ import { DataContext } from "../../App";
 import { baseUrl } from "../../services";
 import Skeleton from "@mui/material/Skeleton";
 import Product from "../../components/products/Product";
+import { FilterCategoryfunc } from "../../services";
+import Stack from "@mui/material/Stack";
 
 function ProductDetail() {
   const { id } = useParams();
   const { productData } = useContext(DataContext);
 
-  const product = productData.find((item) => String(item.id) === String(id));
+  const product = productData?.find((item) => String(item.id) === String(id));
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [activeImage, setActiveImage] = useState(0);
   useEffect(() => {
+    if (product?.category?.id) {
+      FilterCategoryfunc(product.category.id).then((info) => {
+        setRelatedProducts(info);
+      });
+    }
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }, [id]);
+  if (!product) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div>
       <div className="product-container">
@@ -125,13 +136,15 @@ function ProductDetail() {
         <h1 className="prdetai">Suggested products</h1>
       </div>
       <div className="detailProducts">
-        {productData
-          ? productData?.slice(11, 19).map((item) => {
-              return <Product key={item?.id} item={item} />;
-            })
-          : [1, 1, 1, 1].map((item) => {
+        {relatedProducts?.length > 0
+          ? relatedProducts
+              ?.filter((item) => item.id !== product.id)
+              .map((item) => {
+                return <Product key={item?.id} item={item} />;
+              })
+          : [1, 1, 1, 1].map((item, index) => {
               return (
-                <div className="skeleton-wrapper">
+                <div className="skeleton-wrapper" key={index}>
                   <Stack spacing={1}>
                     <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                     <Skeleton variant="circular" width={60} height={60} />

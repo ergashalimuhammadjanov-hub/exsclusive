@@ -1,18 +1,26 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./Accaunt.css";
 import { DataContext } from "../../App";
+import { address } from "framer-motion/client";
+import { updateUser } from "../../services";
 
 function Accaunt() {
-  const { userInfo } = useContext(DataContext);
+  const { userInfo, setUserInfo } = useContext(DataContext);
   const [form, setForm] = useState({
     firstName: "",
     email: "",
+    lastName: "",
+    phoneNumber: "",
+    address: "",
   });
   useEffect(() => {
     if (userInfo) {
       setForm({
         firstName: userInfo.first_name || "",
         email: userInfo.email_or_phone || "",
+        lastName: userInfo.last_name || "",
+        phoneNumber: userInfo.phoneNumber || "+998",
+        address: userInfo.address || "",
       });
     }
   }, [userInfo]);
@@ -50,7 +58,11 @@ function Accaunt() {
 
           <div>
             <label>Last Name</label>
-            <input type="text" placeholder="Last Name" />
+            <input
+              value={form.lastName}
+              type="text"
+              onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+            />
           </div>
 
           <div>
@@ -64,7 +76,11 @@ function Accaunt() {
 
           <div>
             <label>Address</label>
-            <input type="text" placeholder="Adress" />
+            <input
+              value={form.address}
+              type="text"
+              onChange={(e) => setForm({ ...form, address: e.target.value })}
+            />
           </div>
         </div>
 
@@ -77,7 +93,16 @@ function Accaunt() {
 
         <div className="actions">
           <button className="cancel">Cancel</button>
-          <button className="save">Save Changes</button>
+          <button
+            className="save"
+            onClick={async () => {
+              const res = await updateUser(form);
+
+              setUserInfo(res);
+            }}
+          >
+            Save Changes
+          </button>
         </div>
       </div>
     </div>

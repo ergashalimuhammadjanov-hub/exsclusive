@@ -290,7 +290,10 @@
 .detailProducts{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  width: 1400px;
+  margin: auto;
+  margin-right: 30px;
   flex-wrap: wrap;
   gap: 50px;
   margin-top: 100px;

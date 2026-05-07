@@ -4,13 +4,14 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../../App";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { IoCloseCircle } from "react-icons/io5";
 import toast from "react-hot-toast";
 function Navbar() {
   const [modal, setModal] = useState(false);
   const { token, setToken } = useContext(DataContext);
   const navigate = useNavigate();
+  const modalRef = useRef();
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -19,6 +20,19 @@ function Navbar() {
     navigate("/");
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setModal(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   return (
     <nav>
       <div className="navbar1">
@@ -94,7 +108,10 @@ function Navbar() {
                 <FaRegUser
                   title="user"
                   className="user"
-                  onClick={() => setModal(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setModal(true);
+                  }}
                 />
               ) : (
                 ""
@@ -102,10 +119,14 @@ function Navbar() {
 
               {modal && (
                 <div className="overlay" onClick={() => setModal(false)}>
-                  <div className="modal" onClick={(e) => e.stopPropagation()}>
+                  <div
+                    className="modal"
+                    onClick={(e) => e.stopPropagation()}
+                    ref={modalRef}
+                  >
                     <div className="mod">
                       <img src="/imgs/userrr.svg" alt="" />
-                      <NavLink to={"/accaunt"}>
+                      <NavLink to={"/accaunt"} onClick={() => setModal(false)}>
                         <p className="mod-text">Manage My Account</p>
                       </NavLink>
                     </div>

@@ -18,6 +18,7 @@ import Cart from "./pages/cart/Cart";
 import Error from "./pages/error/Error";
 export const DataContext = createContext();
 import { Toaster } from "react-hot-toast";
+import FilterCategory from "./pages/category/FilterCategory";
 
 function App() {
   const [categoryData, setCategoryData] = useState();
@@ -26,7 +27,7 @@ function App() {
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null,
   );
-  useEffect(() => {
+  const getData = () => {
     getCategory()?.then((info) => {
       setCategoryData(info);
     });
@@ -34,9 +35,14 @@ function App() {
     getProducts()?.then((infos) => {
       infos && setProductData(infos);
     });
+
     getUserInfo().then((info) => {
       setUserInfo(info);
     });
+  };
+
+  useEffect(() => {
+    getData();
   }, [token]);
 
   return (
@@ -49,6 +55,7 @@ function App() {
           setToken,
           userInfo,
           setUserInfo,
+          getData,
         }}
       >
         <Navbar />
@@ -64,6 +71,7 @@ function App() {
           <Route path="/accaunt" element={<Accaunt />} />
           <Route path="/allproducts" element={<AllProducts />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/category/:id" element={<FilterCategory />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

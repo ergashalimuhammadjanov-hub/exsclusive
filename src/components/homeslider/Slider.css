@@ -23,5 +23,6 @@
 }
 
 .swiper-button-prev , .swiper-button-next{
-    display: none;
+  cursor: pointer;
+  scale: 0.8;
 }
