@@ -47,7 +47,7 @@ function Wishlist() {
             </button>
 
             <div className="info">
-              <p className="title">{item?.title?.slice(0, 34)}</p>
+              <p className="title">{item?.title}</p>
 
               <p className="price">
                 ${(item?.discount_price / 12000).toFixed(2)}
@@ -57,7 +57,10 @@ function Wishlist() {
         ))
       ) : (
         <div className="empty-wishlist">
-          <img src="https://www.emp.co.uk/on/demandware.static/Sites-GLB-Site/-/default/dw97bfbd0e/images/logos/empty-cart.gif" alt="" />
+          <img
+            src="https://www.emp.co.uk/on/demandware.static/Sites-GLB-Site/-/default/dw97bfbd0e/images/logos/empty-cart.gif"
+            alt=""
+          />
         </div>
       )}
     </div>
