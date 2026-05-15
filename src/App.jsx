@@ -19,6 +19,7 @@ import Error from "./pages/error/Error";
 export const DataContext = createContext();
 import { Toaster } from "react-hot-toast";
 import FilterCategory from "./pages/category/FilterCategory";
+import Breadcrumb from "./components/breadcrumb/Breadcrumb";
 
 function App() {
   const [categoryData, setCategoryData] = useState();
@@ -59,6 +60,7 @@ function App() {
         }}
       >
         <Navbar />
+        <Breadcrumb />
         <Addmodal />
         <Routes>
           <Route path="/" element={<Home />} />

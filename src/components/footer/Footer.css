@@ -51,6 +51,18 @@
   color: #fff;
 }
 
+.footer_col li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+  display: block;
+}
+
+.footer_col li:hover a {
+  color: #fff;
+}
+
 
 
 /* SUBSCRIBE */

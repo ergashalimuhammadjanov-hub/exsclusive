@@ -1,0 +1,70 @@
+.bc-wrapper {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 0;
+}
+
+.bc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bc-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bc-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Oldingi sahifalar — kulrang, bosiladigan link */
+.bc-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.bc-link:hover {
+  color: #db4444;
+}
+
+/* Separator  /  */
+.bc-sep {
+  font-size: 14px;
+  color: #ccc;
+  user-select: none;
+}
+
+/* Route yo'q — link emas, oddiy kulrang text */
+.bc-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  cursor: default;
+}
+
+/* Aktiv (joriy) sahifa — qora, qalin */
+.bc-active {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+  /* qisqa nomlar uchun ellipsis */
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+}

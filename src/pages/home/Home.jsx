@@ -54,20 +54,20 @@ function Home() {
         <div className="home_poducts">
           {productData
             ? productData?.slice(0, 4).map((item) => {
-                return <Product key={item?.id} item={item} />;
-              })
+              return <Product key={item?.id} item={item} />;
+            })
             : [1, 1, 1, 1].map((item, index) => {
-                return (
-                  <div key={index} className="skeleton-wrapper">
-                    <Stack spacing={1}>
-                      <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-                      <Skeleton variant="circular" width={60} height={60} />
-                      <Skeleton variant="rectangular" width={210} height={60} />
-                      <Skeleton variant="rounded" width={210} height={60} />
-                    </Stack>
-                  </div>
-                );
-              })}
+              return (
+                <div key={index} className="skeleton-wrapper">
+                  <Stack spacing={1}>
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                    <Skeleton variant="circular" width={60} height={60} />
+                    <Skeleton variant="rectangular" width={210} height={60} />
+                    <Skeleton variant="rounded" width={210} height={60} />
+                  </Stack>
+                </div>
+              );
+            })}
         </div>
 
         <section className="Category">
@@ -79,10 +79,12 @@ function Home() {
             <div className="categoryCards">
               {categoryData?.map((item) => {
                 return (
-                  <div key={item?.id} className="cat_yCard">
-                    <img src={item?.image} />
-                    <h3>{item?.title}</h3>
-                  </div>
+                  <Link key={item?.id} to={`/category/${item.id}`}>
+                    <div className="cat_yCard">
+                      <img src={item?.image} />
+                      <h3>{item?.title}</h3>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
@@ -96,29 +98,31 @@ function Home() {
               </div>
               <h1 className="h1anim">Best Selling Products</h1>
             </div>
-            <button className="viewall">View All</button>
+            <Link to={"/allproducts"}>
+              <button className="viewall">View All</button>
+            </Link>
           </div>
           <div className="prodectss">
             {productData
               ? productData?.slice(7, 11).map((item) => {
-                  return <Product key={item?.id} item={item} />;
-                })
+                return <Product key={item?.id} item={item} />;
+              })
               : [1, 1, 1, 1].map((item, index) => {
-                  return (
-                    <div key={index} className="skeleton-wrapper">
-                      <Stack spacing={1}>
-                        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-                        <Skeleton variant="circular" width={60} height={60} />
-                        <Skeleton
-                          variant="rectangular"
-                          width={210}
-                          height={60}
-                        />
-                        <Skeleton variant="rounded" width={210} height={60} />
-                      </Stack>
-                    </div>
-                  );
-                })}
+                return (
+                  <div key={index} className="skeleton-wrapper">
+                    <Stack spacing={1}>
+                      <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                      <Skeleton variant="circular" width={60} height={60} />
+                      <Skeleton
+                        variant="rectangular"
+                        width={210}
+                        height={60}
+                      />
+                      <Skeleton variant="rounded" width={210} height={60} />
+                    </Stack>
+                  </div>
+                );
+              })}
           </div>
           <div className="slideImg">
             <div className="music-box">
@@ -158,24 +162,24 @@ function Home() {
           <div className="prodectss">
             {productData
               ? productData?.slice(20, 28).map((item) => {
-                  return <Product key={item?.id} item={item} />;
-                })
+                return <Product key={item?.id} item={item} />;
+              })
               : [1, 1, 1, 1].map((item, index) => {
-                  return (
-                    <div key={index} className="skeleton-wrapper">
-                      <Stack spacing={1}>
-                        <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-                        <Skeleton variant="circular" width={60} height={60} />
-                        <Skeleton
-                          variant="rectangular"
-                          width={210}
-                          height={60}
-                        />
-                        <Skeleton variant="rounded" width={210} height={60} />
-                      </Stack>
-                    </div>
-                  );
-                })}
+                return (
+                  <div key={index} className="skeleton-wrapper">
+                    <Stack spacing={1}>
+                      <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                      <Skeleton variant="circular" width={60} height={60} />
+                      <Skeleton
+                        variant="rectangular"
+                        width={210}
+                        height={60}
+                      />
+                      <Skeleton variant="rounded" width={210} height={60} />
+                    </Stack>
+                  </div>
+                );
+              })}
           </div>
           <Link to={"/allproducts"}>
             <button className="btn"> View All Products</button>

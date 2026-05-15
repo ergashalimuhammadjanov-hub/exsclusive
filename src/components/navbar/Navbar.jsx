@@ -7,11 +7,14 @@ import { DataContext } from "../../App";
 import { useEffect, useState, useContext, useRef } from "react";
 import { IoCloseCircle } from "react-icons/io5";
 import toast from "react-hot-toast";
+import Searchmodal from "./Searchmodal";
+
 function Navbar() {
   const [modal, setModal] = useState(false);
   const { token, setToken } = useContext(DataContext);
   const navigate = useNavigate();
   const modalRef = useRef();
+  const [navmodal, setNavodal] = useState(false);
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -90,6 +93,9 @@ function Navbar() {
                   className="input"
                   name="text"
                   type="text"
+                  readOnly
+                  onClick={() => setNavodal(true)}
+                  onFocus={() => setNavodal(true)}
                 />
 
                 <label className="labelforsearch" htmlFor="input">
@@ -157,6 +163,7 @@ function Navbar() {
           </div>
         </div>
       </div>
+      <Searchmodal navmodal={navmodal} setNavodal={setNavodal} />
     </nav>
   );
 }

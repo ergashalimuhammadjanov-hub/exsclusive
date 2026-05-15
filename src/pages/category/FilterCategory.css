@@ -1,9 +1,19 @@
-.fillterData{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin: auto;
-    justify-content: start;
-    margin-left: 20px;
-    margin-top: 100px;
+.fillterData {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: auto;
+  justify-content: start;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.filter-skeleton {
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skeletonPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
 }
