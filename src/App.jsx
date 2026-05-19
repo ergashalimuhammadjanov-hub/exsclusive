@@ -8,7 +8,7 @@ import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
-import { getCategory, getProducts, getUserInfo } from "./services";
+import { getCategory, getProducts, getUserInfo, getCart } from "./services";
 import Addmodal from "./components/addtocardmodal/Addmodal";
 import ProductDetail from "./components/productDetail/ProductDetail";
 import Wishlist from "./components/wishlist/Wishlist";
@@ -25,9 +25,30 @@ function App() {
   const [categoryData, setCategoryData] = useState();
   const [productData, setProductData] = useState();
   const [userInfo, setUserInfo] = useState();
+  const [cartModal, setCartModal] = useState(null);
+  const [cartCount, setCartCount] = useState(0);
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null,
   );
+
+  const refreshCart = async () => {
+    if (!localStorage.getItem("token")) { setCartCount(0); return; }
+    try {
+      const data = await getCart();
+      console.log("refreshCart data:", data); // debug
+      const items = Array.isArray(data) ? data
+        : Array.isArray(data?.results)     ? data.results
+        : Array.isArray(data?.items)       ? data.items
+        : Array.isArray(data?.cart_items)  ? data.cart_items
+        : [];
+      // Har bir item ning quantity sini qo'shamiz (yoki shunchaki items.length)
+      const total = items.reduce((sum, i) => sum + (i.quantity || 1), 0);
+      setCartCount(total);
+    } catch (err) {
+      console.error("refreshCart error:", err);
+      setCartCount(0);
+    }
+  };
   const getData = () => {
     getCategory()?.then((info) => {
       setCategoryData(info);
@@ -44,6 +65,7 @@ function App() {
 
   useEffect(() => {
     getData();
+    refreshCart();
   }, [token]);
 
   return (
@@ -57,6 +79,10 @@ function App() {
           userInfo,
           setUserInfo,
           getData,
+          cartModal,
+          setCartModal,
+          cartCount,
+          refreshCart,
         }}
       >
         <Navbar />

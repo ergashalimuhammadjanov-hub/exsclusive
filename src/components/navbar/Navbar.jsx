@@ -5,16 +5,20 @@ import { FaRegUser } from "react-icons/fa";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../../App";
 import { useEffect, useState, useContext, useRef } from "react";
-import { IoCloseCircle } from "react-icons/io5";
 import toast from "react-hot-toast";
 import Searchmodal from "./Searchmodal";
 
 function Navbar() {
   const [modal, setModal] = useState(false);
-  const { token, setToken } = useContext(DataContext);
+  const { token, setToken, productData, cartCount } = useContext(DataContext);
   const navigate = useNavigate();
   const modalRef = useRef();
   const [navmodal, setNavodal] = useState(false);
+
+  // Wishlist soni — faqat token bo'lsa hisoblaydi
+  const wishlistCount = token
+    ? productData?.filter((p) => p.is_liked)?.length || 0
+    : 0;
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -104,11 +108,17 @@ function Navbar() {
                   </svg>
                 </label>
               </div>
-              <Link to={"/wishlist"}>
+              <Link to={"/wishlist"} className="nav-icon-wrap">
                 <FaRegHeart className="hearttt" title="wishlist" />
+                {wishlistCount > 0 && (
+                  <span className="nav-badge">{wishlistCount}</span>
+                )}
               </Link>
-              <Link to={"/cart"}>
+              <Link to={"/cart"} className="nav-icon-wrap">
                 <FaCartShopping className="carttt" title="cart" />
+                {cartCount > 0 && (
+                  <span className="nav-badge">{cartCount}</span>
+                )}
               </Link>
               {token ? (
                 <FaRegUser

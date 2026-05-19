@@ -1,16 +1,59 @@
 import "./Product.css";
-import { baseUrl, addToWishlist } from "../../services";
+import { baseUrl, addToWishlist, delWishList } from "../../services";
 import { FaStar } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GoHeart } from "react-icons/go";
-import { FcLike } from "react-icons/fc";
-import { useContext } from "react";
+import { FaHeart } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { DataContext } from "../../App";
 import toast from "react-hot-toast";
 
 function Product({ item }) {
-  const { getData } = useContext(DataContext);
+  const { getData, token, setCartModal } = useContext(DataContext);
+
+  // Optimistic update — API javobini kutmasdan UI ni tez o'zgartirish
+  const [liked, setLiked] = useState(item?.is_liked || false);
+  const [loading, setLoading] = useState(false);
+
+  const handleLike = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (loading) return;
+    setLoading(true);
+
+    // Optimistic: darhol UI ni o'zgartir
+    const newLiked = !liked;
+    setLiked(newLiked);
+
+    if (newLiked) {
+      // Wishlistga qo'sh
+      addToWishlist(item.id)
+        .then(() => {
+          getData();
+          toast.success("Sevimlilarga qo'shildi ❤️");
+        })
+        .catch(() => {
+          setLiked(!newLiked); // xato bo'lsa qaytarish
+          toast.error("Xatolik yuz berdi");
+        })
+        .finally(() => setLoading(false));
+    } else {
+      // Wishlistdan o'chir
+      delWishList(item.id)
+        .then(() => {
+          getData();
+          toast.success("Sevimlilardan olib tashlandi");
+        })
+        .catch(() => {
+          setLiked(!newLiked);
+          toast.error("Xatolik yuz berdi");
+        })
+        .finally(() => setLoading(false));
+    }
+  };
+
   return (
     <div className="product_card">
       <Link to={`/productdetail/${item?.id}`}>
@@ -38,29 +81,27 @@ function Product({ item }) {
             </div>
           </div>
 
-          <div
-            className="cardLike"
-            title="like"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
+          {/* Like — faqat login qilingan bo'lsa ko'rinadi */}
+          {token && (
+            <div
+              className={`cardLike ${liked ? "cardLike--liked" : ""}`}
+              title={liked ? "Sevimlilardan olib tashlash" : "Sevimlilarga qo'shish"}
+              onClick={handleLike}
+            >
+              {liked ? (
+                <FaHeart className="like like--active" />
+              ) : (
+                <GoHeart className="like" />
+              )}
+            </div>
+          )}
 
-              addToWishlist(item.id).then((info) => {
-                getData();
-                toast.success("Mahsulot sevimlilarga qo‘shildi ❤️");
-              });
-            }}
-          >
-            {item?.is_liked ? (
-              <FcLike className="like" />
-            ) : (
-              <GoHeart className="like" />
-            )}
-          </div>
-
-          <div className="eye" title="this ptoduct">
-            <FaEye className="koz" />
-          </div>
+          {/* Ko'z — faqat login qilingan bo'lsa ko'rinadi */}
+          {token && (
+            <div className="eye" title="Ko'rish">
+              <FaEye className="koz" />
+            </div>
+          )}
 
           <button
             className="cart"
@@ -68,10 +109,7 @@ function Product({ item }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-
-              addToWishlist(item.id).then((info) => {
-                console.log(info);
-              });
+              setCartModal(item);
             }}
           >
             ADD TO CART
